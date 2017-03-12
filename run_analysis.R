@@ -109,6 +109,19 @@ head(complete_df)
 # Each column contain one variable and a discriptive colomn names
 # Each activity in the activity column has discriptive name
 # The data contain only the mean and std measurement only
-# Lets write the data into a tidy.txt so that the data can be used later for analysis
+
+# Now lets create a new data set with the average of each variable for
+# each activity and each subject
+# Here we utilize the dplyr package so we start by loading the function
+
+require(dplyr)
+
+complete_df <-complete_df %>%
+  group_by(activity, subject) %>%
+  summarise_each(funs(mean))
+
+
+# Lets write the data with the average of each variable for each activity and each subject
+# into tidy.txt file  so that the data can be used later for analysis
 
 write.table(complete_df, "./tidy.txt", sep = "\t")
