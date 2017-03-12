@@ -1,6 +1,8 @@
 # Code Book
 
-This code book give a summary of the data in the `tidy.txt`.
+This code book give a summary of the tidy data we get after merging train and test  
+and selecting mean and std measurement only.  
+At the end the codebook also give a brief description of independent tidy data set with the    average of each variable for each activity and each subject(tidy.txt).
 
 ## Dimension
 
@@ -103,4 +105,20 @@ The tidy data contain 81 variables which can be divided into two:
 * `fBodyBodyGyroMagMeanFreq`
 * `fBodyBodyGyroJerkMagMean`
 * `fBodyBodyGyroJerkMagStd`
-* `fBodyBodyGyroJerkMagMeanFreq`
+* `fBodyBodyGyroJerkMagMeanFreq`   
+   
+   
+# Tidy.txt
+The file contain an independent tidy data set for the average of each measurement grouped by   each  activity and each subject.   
+    
+    
+### Dimension 
+`180` `81`   
+
+### Variables 
+Are similar to those in the tidy data described above(**81 variables**)     
+    
+    
+### Observation   
+Here the observation are 180 which are the grouped average of the measurement according   
+to the each activity and each subject.  
