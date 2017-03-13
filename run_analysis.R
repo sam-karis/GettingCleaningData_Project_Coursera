@@ -3,7 +3,7 @@
 ### By Samkaris
 ### Date: March 2017
 
-## This project does the following.
+## By running this script we achieve the following.
 
 # 1. Download the UCI HAR Dataset from 
 # https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
@@ -14,12 +14,12 @@
 # 6. Creates a second, independent tidy data set. 
 
 
-#Lets first clear the work space but leaving the downloadtime because we shall not
-#download the data each time we run the script
+# First clear the work space but leave the downloadtime because we shall not
+# download the data each time we run the script
 
 rm(list=setdiff(ls(), "downloadtime"))
 
-# Source the function_source.R script that we have Three functions defined:
+# Source the function_source.R script that we have Three functions defined: 
 # 1. path()
 # 2. read_label_data()
 # 3. join_train_test()
@@ -106,22 +106,28 @@ dim(complete_df)
 head(complete_df)
 
 # Finally the complete_df data is tidy that is:
-# Each column contain one variable and a discriptive colomn names
+# Each column is a variable with a discriptive colomn name.
+# Each row is an observation. 
 # Each activity in the activity column has discriptive name
 # The data contain only the mean and std measurement only
 
-# Now lets create a new data set with the average of each variable for
-# each activity and each subject
-# Here we utilize the dplyr package so we start by loading the function
+# lets write our data into a completedata.txt file for use in future
+
+write.table(complete_df, "./completedata.txt", sep = "\t", row.names = FALSE)
+
+
+# create a second independent tidy data set for the average of each mean and standard deviation
+# measurement by each activity and each subject
+# Here I utilize the dplyr package so I start by loading the package
 
 require(dplyr)
 
-complete_df <-complete_df %>%
+grp_average <-complete_df %>%
   group_by(activity, subject) %>%
   summarise_each(funs(mean))
 
 
-# Lets write the data with the average of each variable for each activity and each subject
+# Write the data for the average of each variable by each activity and each subject
 # into tidy.txt file  so that the data can be used later for analysis
 
-write.table(complete_df, "./tidy.txt", sep = "\t")
+write.table(grp_average, "./tidy.txt", sep = "\t", row.names = FALSE)
