@@ -23,13 +23,15 @@ For the analysis run this script to get and unzip and clean the data.
 
 2. **function_source.R** - Helper script that defeines three functions that are sourced by run_analysis.R script    
 The script contain three user defined functions functions :   
-+ path() - takes file name as the arguement to return the path for the file.   
-+ read_label_data() - Read either train or test data and their respective subjects and activity labels.    
-+ join_train_test() - join the train and test data to one.    
+>  path() - takes file name as the arguement to return the path for the file.   
+>  read_label_data() - Read either train or test data and their respective subjects and activity labels.    
+>  join_train_test() - join the train and test data to one.    
     
 3. **Codebook.MD** - Give a description of the tidy data created after running the run_analysis.R script    
-    
-4. **tidy.txt** - The file contain average of each measurement grouped by each activity and each subject.
+     
+4. **completedata.txt** - The file contain all the data of measurement of mean and standard deviation.    
+     
+5. **tidy.txt** - The file contain average of each measurement grouped by each activity and each subject.
     
 # To run the Projects in your local machine
 1. You need to have install: R and R studio
